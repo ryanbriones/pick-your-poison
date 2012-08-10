@@ -8,7 +8,7 @@ gem 'heroku'
 
 # data
 gem 'mongo'
-
+gem 'bson_ext'
 
 group :development do
     gem 'unicorn'
