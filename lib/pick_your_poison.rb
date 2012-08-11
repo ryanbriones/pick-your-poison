@@ -6,12 +6,15 @@ module PickYourPoison
         register Sinatra::Initializers
 
             get '/' do
-                'hello world'
-                # haml :index
+                haml :index
             end
 
             get '/submit' do
                 haml :confirm
+            end
+
+            get '/about' do
+                haml :index
             end
 
     end
