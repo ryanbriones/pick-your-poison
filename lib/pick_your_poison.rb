@@ -9,8 +9,12 @@ module PickYourPoison
                 haml :index
             end
 
-            get '/submit' do
-                haml :confirm
+            post '/submit' do
+                puts params
+                PF.insert(params)
+                puts PF.find_one
+
+                haml :index
             end
 
             get '/about' do

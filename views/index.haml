@@ -20,7 +20,7 @@
         %p Food poisoning sucks. Think you've got it? Tell us about it.
       .row
         .span12
-          %form.form-horizontal.well{ :action => 'post' }
+          %form.form-horizontal.well{ :method => 'post', :action => 'submit' }
             %fieldset
               %legend
                 Basic info
@@ -28,27 +28,27 @@
                 %label.control-label{ :for => 'restaurant_name' }
                   What is the name of the restaurant?
                 .controls
-                  %input.input-xlarge{ :type => 'text', :id => 'restaurant_name', :placeholder => 'e.g. Billy Goat, Alinea' }
+                  %input.input-xlarge{ :type => 'text', :id => 'restaurant_name', :name => 'restaurant_name', :placeholder => 'e.g. Billy Goat, Alinea' }
                   %p.help-block
                     supporting help text!
               .control-group
                 %label.control-label{ :for => 'restaurant_address' }
                   What is this restaurant's address?
                 .controls
-                  %input.input-xlarge{ :type => 'text', :id => 'restaurant_address', :placeholder => '70 E Lake St, Chicago, IL' }
+                  %input.input-xlarge{ :type => 'text', :id => 'restaurant_address', :name => 'restaurant_address', :placeholder => '70 E Lake St, Chicago, IL' }
                   %p.help-block
               .control-group
                 %label.control-label{ :for => 'problem_description' }
                   Please describe the problem.
                 .controls
-                  %textarea.span6{ :id => 'problem_description', :rows => '6' }
+                  %textarea.span6{ :id => 'problem_description', :name => 'problem_description', :rows => '6' }
                   %p.help-block
                     Spare no detail!
               .control-group
-                %label.control-label{ :for => 'problem_time' }
+                %label.control-label{ :for => 'problem_date' }
                   On what date were you poisoned?
                 .controls
-                  %input.input-xlarge{ :type => 'text', :id => 'problem_date' }
+                  %input.input-xlarge{ :type => 'text', :id => 'problem_date', :name => 'problem_date' }
 
             %fieldset
               %legend
@@ -57,35 +57,35 @@
                 %label.control-label
                   Your name
                 .controls
-                  %input{ :type => 'text', :id => 'person_name', :placeholder => 'e.g. Joe Citizen' }
+                  %input{ :type => 'text', :id => 'person_name', :name => 'person_name', :placeholder => 'e.g. Joe Citizen' }
               .control-group
                 %label.control-label
                   Your address
                 .controls
-                  %input{ :type => 'text', :id => 'person_address', :placeholder => 'e.g. 70 E Lake St' }
+                  %input{ :type => 'text', :id => 'person_address', :name => 'person_address', :placeholder => 'e.g. 70 E Lake St' }
               .control-group
                 .controls
-                  %input{ :type => 'text', :id => 'person_address', :placeholder => 'Suite 800' }
+                  %input{ :type => 'text', :id => 'person_address', :name => 'person_address', :placeholder => 'Suite 800' }
               .control-group
-                %label.control-label{ :for => 'city' }
+                %label.control-label{ :for => 'person_city' }
                   City
                 .controls
-                  %input{ :type => 'text', :id => 'city', :placeholder => 'Chicago' }
+                  %input{ :type => 'text', :id => 'person_city', :name => 'person_city', :placeholder => 'Chicago' }
               .control-group
-                %label.control-label{ :for => 'state' }
+                %label.control-label{ :for => 'person_state' }
                   State
-                .controls
-                  %input{ :type => 'text', :id => 'state', :placeholder => 'Illinois' }
+                .timecontrols
+                  %input{ :type => 'text', :id => 'person_state', :name => 'person_state', :placeholder => 'Illinois' }
               .control-group
                 %label.control-label{ :for => 'email_address' }
                   Email address 
                 .controls
-                  %input{ :type => 'text', :id => 'email_address', :placeholder => 'rahm@cityofchicago.gov' }
+                  %input{ :type => 'text', :id => 'person_email_address', :name => 'person_email_address', :placeholder => 'rahm@cityofchicago.gov' }
               .control-group
                 %label.control-label{ :for => 'phone_number' }
                   Phone number
                 .controls
-                  %input{ :type => 'text', :id => 'phone_number', :placeholder => '312-123-4150' }
+                  %input{ :type => 'text', :id => 'person_phone_number', :name => 'person_phone_number', :placeholder => '312-123-4150' }
 
 
 
