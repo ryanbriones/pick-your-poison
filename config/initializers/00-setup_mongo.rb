@@ -1,20 +1,25 @@
 require 'yaml'
 require 'mongo'
 
-config = {
-    'server' => ENV['MONGO_AWS'],
-    'port' => ENV['MONGO_PORT'],
-    'db' => ENV['MONGO_DB'],
-    'user' => ENV['MONGO_USER'],
-    'pass' => ENV['MONGO_PASS']
-}
-puts 'got config from heroku env'
+begin
+    config = YAML.load_file('config/database.yml')
+    puts 'got config from local'
+rescue
+    config = {
+        'server' => ENV['MONGO_AWS'],
+        'port' => ENV['MONGO_PORT'],
+        'db' => ENV['MONGO_DB'],
+        'user' => ENV['MONGO_USER'],
+        'pass' => ENV['MONGO_PASS']
+    }
+    puts 'got config from heroku env'
+end
 
-conn = Mongo::Connection.new(config['server'], config['port'])  # Open connection
+conn = Mongo::Connection.new(config['server'], config['port'])  # Connect to Mongo instance
 puts conn
-db = conn.db(config['db'])  # connect to db 
+db = conn.db(config['db'])  # Connect to DB
 puts db
-auth = db.authenticate(config['user'], config['pass'])  # Authentice
+auth = db.authenticate(config['user'], config['pass'])  # Authenticate
 puts auth
-PF = db['pf']  # Create new collection
+PF = db['test']  # Connect to collection
 puts PF
