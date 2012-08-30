@@ -2,7 +2,7 @@ require 'yaml'
 require 'mongo'
 
 config = {
-    'server' => ENV['MONGO_FULL'],
+    'server' => ENV['MONGO_AWS'],
     'port' => ENV['MONGO_PORT'],
     'db' => ENV['MONGO_DB'],
     'user' => ENV['MONGO_USER'],
