@@ -6,7 +6,7 @@ begin
     puts 'got config from local'
 rescue
     config = {
-        'server' => ENV['MONGO_FULL'],
+        'server' => ENV['MONGO_SERVER'],
         'port' => ENV['MONGO_PORT'],
         'db' => ENV['MONGO_DB'],
         'user' => ENV['MONGO_USER'],
