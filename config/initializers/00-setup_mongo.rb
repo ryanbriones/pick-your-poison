@@ -7,14 +7,19 @@ begin
 rescue
     config = {
         'server' => ENV['MONGO_SERVER'],
-        'port' => ENV['MONGO_PORT']
+        'port' => ENV['MONGO_PORT'],
+        'db' => ENV['MONGO_DB'],
+        'user' => ENV['MONGO_USER'],
+        'pass' => ENV['MONGO_PASS']
     }
     puts 'got config from heroku env'
 end
 
-conn = Mongo::Connection.new(config['server'], config['port'])
+conn = Mongo::Connection.new(config['server'], config['port'])  # Open connection
 puts conn
-db = conn.db('test')
+db = conn.db(config['db'])  # connect to db 
 puts db
-PF = db['pf']
+auth = db.authenticate(config['user'], config['pass'])  # Authentice
+puts auth
+PF = db['pf']  # Create new collection
 puts PF
