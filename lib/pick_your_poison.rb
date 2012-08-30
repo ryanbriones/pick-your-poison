@@ -14,6 +14,8 @@ module PickYourPoison
                 PF.insert(params)
                 puts PF.find_one
 
+
+
                 haml :index
             end
 
