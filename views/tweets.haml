@@ -1,0 +1,36 @@
+!!! html
+%html
+  %head
+    %link{ :rel => 'stylesheet', :href => '/bootstrap/css/bootstrap.css' }
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand{ :href => '#' }
+            food_poison.us
+          %ul.nav.pull-right
+            %li.divider-vertical
+              %li
+                %a{ :href => '/about' } 
+                  About
+            %li.divider-vertical
+    .container{ :style => 'padding-top: 60px;' }
+      .row
+        .span12
+          %h1 Food Poisoning Tweets
+          %hr
+
+      - (0..10).each do
+        .row
+          .span8.offset2.well
+            .row
+              .span1
+                %img{ :src => 'https://si0.twimg.com/profile_images/536267951/juan_normal.jpg' }
+              .span7
+                %p.muted.pull-right 8 Sep
+                %h3 
+                  Juan-Pablo Velez 
+                  %small @jpvelez
+                %blockquote
+                  %p For the curious, here's a written version of the Intro to R tutorial I did last night at the #opengovhacknight: https://gist.github.com/3298226 
+

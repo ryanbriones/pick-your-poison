@@ -11,14 +11,26 @@ module PickYourPoison
 
             post '/submit' do
                 puts params
-                PF.insert(params)
-                puts PF.find_one
+                FORMS.insert(params)
+                puts FORMS.find_one
 
                 haml :index
             end
 
             get '/about' do
                 haml :index
+            end
+
+            get '/tweets' do
+                haml :tweets
+            end
+
+            get '/responses' do
+                haml :responses
+            end
+
+            get '/forms' do
+                haml :forms
             end
 
     end

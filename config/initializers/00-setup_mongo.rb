@@ -12,14 +12,22 @@ rescue
         'user' => ENV['MONGO_USER'],
         'pass' => ENV['MONGO_PASS']
     }
+
+    heroku_config = true
+
     puts 'got config from heroku env'
 end
 
 conn = Mongo::Connection.new(config['server'], config['port'])  # Connect to Mongo instance
 puts conn
+
 db = conn.db(config['db'])  # Connect to DB
 puts db
-auth = db.authenticate(config['user'], config['pass'])  # Authenticate
-puts auth
-PF = db['test']  # Connect to collection
+
+if heroku_config == true
+    auth = db.authenticate(config['user'], config['pass'])  # Authenticate if on production server
+    puts auth
+end
+
+PF = db['fp_form_data']  # Connect to collection
 puts PF
