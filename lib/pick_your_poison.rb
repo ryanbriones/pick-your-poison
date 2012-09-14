@@ -12,8 +12,8 @@ module PickYourPoison
             end
 
             post '/submit' do
-                FORMS.insert(params)
-                puts FORMS.find_one
+                REPORTS.insert(params)
+                puts REPORTS.find_one
 
                 haml :index
             end
