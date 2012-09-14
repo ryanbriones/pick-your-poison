@@ -1,0 +1,38 @@
+= haml :navbar
+.container{ :style => 'padding-top: 60px;' }
+
+  .row
+    .span12
+      %h1 Food Poisoning Reports
+      %hr
+
+  - @reports.each do |report|
+    .row
+      .span8.offset2.well
+        %dl
+          %h3
+            = report['person_name']
+            %small
+              %a{ :href => "http://www.twitter.com/#{report['twitter_handle']}" }
+                = report['twitter_handle']
+              &amp;
+              %a{ :href => "mailto:#{report['person_email_address']}" }
+                #{report['person_email_address']}
+          %hr
+          %dt
+            What restaurant was it?
+          %dd
+            = report['restaurant_name']
+          %dt
+            What was it's address?
+          %dd
+            = report['restaurant_address']
+          %dt
+            What happened?
+          %dd
+            = report['problem_description']
+          %dt
+            When did it happen?
+          %dd
+            = report['problem_date']
+          

@@ -1,0 +1,29 @@
+!!! html
+%html
+  %head
+    %link{ :rel => 'stylesheet', :href => '/bootstrap/css/bootstrap.css' }
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand{ :href => '/' }
+            food_poison.us
+          %ul.nav.pull-right
+            %li.divider-vertical
+              %li
+                %a{ :href => '/about' } 
+                  About
+            %li.divider-vertical
+            %li
+              %a{ :href => '/tweets' }
+                Tweets
+            %li.divider-vertical
+            %li
+              %a{ :href => '/replies' }
+                @Replies
+            %li.divider-vertical
+            %li
+              %a{ :href => '/reports' }
+                Reports
+            %li.divider-vertical
+

@@ -6,6 +6,8 @@ module PickYourPoison
         register Sinatra::Initializers
 
             get '/' do
+                @user_info = params
+                puts @user_info
                 haml :index
             end
 
@@ -17,21 +19,22 @@ module PickYourPoison
             end
 
             get '/about' do
-                haml :index
+                haml :about
             end
 
             get '/tweets' do
-                puts TWEETS.count
                 @tweets = TWEETS.find.limit(30)
                 haml :tweets
             end
 
-            get '/responses' do
-                haml :responses
+            get '/replies' do
+                @tweets = TWEETS.find.limit(30)
+                haml :replies
             end
 
-            get '/forms' do
-                haml :forms
+            get '/reports' do
+                @reports = REPORTS.find.limit(30)
+                haml :reports
             end
 
     end

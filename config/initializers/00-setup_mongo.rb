@@ -9,11 +9,11 @@ rescue
         'server' => ENV['MONGO_AWS'],
         'port' => ENV['MONGO_PORT'],
         'tweets_db' => ENV['MONGO_TWEETS_DB'],
-        'forms_db' => ENV['MONGO_FORMS_DB'],
+        'reports_db' => ENV['MONGO_FORMS_DB'],
         'tweets_user' => ENV['MONGO_TWEETS_USER'],
         'tweets_pass' => ENV['MONGO_TWEETS_PASS'],
-        'forms_user' => ENV['MONGO_FORMS_USER'],
-        'forms_pass' => ENV['MONGO_FORMS_PASS']
+        'reports_user' => ENV['MONGO_FORMS_USER'],
+        'reports_pass' => ENV['MONGO_FORMS_PASS']
     }
 
     heroku_config = true
@@ -27,17 +27,17 @@ puts conn
 tweets_db = conn.db(config['tweets_db'])  # Connect to DBs
 puts config['tweets_db'], tweets_db
 
-forms_db = conn.db(config['forms_db'])  
-puts config['forms_db'], forms_db
+reports_db = conn.db(config['reports_db'])  
+puts config['reports_db'], reports_db
 
 if heroku_config == true
     tweets_auth = tweets_db.authenticate(config['tweets_user'], config['tweets_pass'])  # Authenticate if on production server
-    forms_auth = forms_db.authenticate(config['forms_user'], config['forms_pass'])  
-    puts tweets_auth, forms_auth
+    reports_auth = reports_db.authenticate(config['reports_user'], config['reports_pass'])  
+    puts tweets_auth, reports_auth
 end
 
 TWEETS = tweets_db['fp_tweets_chi_01'] # Connect to collections
 puts 'fp_tweets_chi_01', TWEETS
 
-FORMS = forms_db['fp_form_data']  
-puts 'fp_form_data', FORMS
+REPORTS = reports_db['fp_form_data']  
+puts 'fp_form_data', REPORTS
