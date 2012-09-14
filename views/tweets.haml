@@ -20,17 +20,20 @@
           %h1 Food Poisoning Tweets
           %hr
 
-      - (0..10).each do
+      - @tweets.each do |tweet|
         .row
           .span8.offset2.well
             .row
               .span1
-                %img{ :src => 'https://si0.twimg.com/profile_images/536267951/juan_normal.jpg' }
+                %img{ :src => "#{tweet['profile_image_url']}" }
               .span7
-                %p.muted.pull-right 8 Sep
+                %p.muted.pull-right 
+                  = tweet['created_at']
                 %h3 
-                  Juan-Pablo Velez 
-                  %small @jpvelez
+                  = tweet['from_user_name']
+                  %small 
+                    @#{tweet['from_user']}
                 %blockquote
-                  %p For the curious, here's a written version of the Intro to R tutorial I did last night at the #opengovhacknight: https://gist.github.com/3298226 
+                  %p
+                    = tweet['text']
 

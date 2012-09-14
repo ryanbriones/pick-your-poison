@@ -10,7 +10,6 @@ module PickYourPoison
             end
 
             post '/submit' do
-                puts params
                 FORMS.insert(params)
                 puts FORMS.find_one
 
@@ -22,6 +21,8 @@ module PickYourPoison
             end
 
             get '/tweets' do
+                puts TWEETS.count
+                @tweets = TWEETS.find
                 haml :tweets
             end
 
