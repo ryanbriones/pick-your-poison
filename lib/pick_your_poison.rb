@@ -22,7 +22,7 @@ module PickYourPoison
 
             get '/tweets' do
                 puts TWEETS.count
-                @tweets = TWEETS.find
+                @tweets = TWEETS.find.limit(30)
                 haml :tweets
             end
 
