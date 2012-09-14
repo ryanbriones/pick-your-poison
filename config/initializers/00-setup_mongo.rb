@@ -31,9 +31,9 @@ forms_db = conn.db(config['forms_db'])
 puts config['forms_db'], forms_db
 
 if heroku_config == true
-    tweet_auth = tweet_db.authenticate(config['tweets_user'], config['tweets_pass'])  # Authenticate if on production server
-    forms_auth = tweet_db.authenticate(config['forms_user'], config['forms_pass'])  
-    puts tweet_auth, forms_auth
+    tweets_auth = tweets_db.authenticate(config['tweets_user'], config['tweets_pass'])  # Authenticate if on production server
+    forms_auth = forms_db.authenticate(config['forms_user'], config['forms_pass'])  
+    puts tweets_auth, forms_auth
 end
 
 TWEETS = tweets_db['fp_tweets_chi_01'] # Connect to collections
