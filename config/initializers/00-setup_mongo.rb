@@ -39,5 +39,8 @@ end
 TWEETS = tweets_db['fp_tweets_chi_01'] # Connect to collections
 puts 'fp_tweets_chi_01', TWEETS
 
+DAN_TWEETS = tweets_db['tweets']
+puts 'tweets', DAN_TWEETS
+
 REPORTS = reports_db['fp_form_data']  
 puts 'fp_form_data', REPORTS

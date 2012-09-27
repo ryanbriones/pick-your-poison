@@ -6,21 +6,21 @@
       %h1 @food_poison replies
       %hr
 
-  - @tweets.each do |tweet|
+  - @dan_outreach_tweets.each do |tweet|
     .row
       .span8.offset2.well
         .row
           .span1
-            %img{ :src => "#{tweet['profile_image_url']}" }
+            %img{ :src => "#{tweet['user']['profile_image_url']}" }
           .span7
             %p.muted.pull-right 
-              %a{ :href => "http://www.twitter.com/#{tweet['from_user']}/status/#{tweet['id_str']}", :style => "color: #999" }
-                = tweet['created_at']
+              %a{ :href => "http://www.twitter.com/#{tweet['user']['screen_name']}/status/#{tweet['id_str']}", :style => "color: #999" }
+                = Date.parse tweet['created_at']
             %h3 
-              = tweet['from_user_name']
+              = tweet['user']['screen_name']
               %small 
-                %a{ :href => "http://www.twitter.com/#{tweet['from_user']}" }
-                  @#{tweet['from_user']}
+                %a{ :href => "http://www.twitter.com/#{tweet['user']['name']}" }
+                  @#{tweet['user']['name']}
             %blockquote
               %p
                 = tweet['text']
