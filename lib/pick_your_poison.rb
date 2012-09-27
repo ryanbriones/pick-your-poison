@@ -23,7 +23,7 @@ module PickYourPoison
             end
 
             get '/tweets' do
-                @tweets = TWEETS.find.limit(30)
+                @tweets = TWEETS.find.sort( :jDate => :desc ).limit(30)
                 haml :tweets
             end
 

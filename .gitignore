@@ -1,4 +1,5 @@
 .DS_Store
 config/mongodb1.pem
 config/database.yml
+config/apikey.txt
 dan\ discussion\ questions.txt

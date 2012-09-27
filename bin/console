@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+
+base = File.dirname(__FILE__)
+$:.unshift File.expand_path(File.join(base, "..", "lib"))
+
+require "irb"
+
+require "pick_your_poison"
+
+IRB.start

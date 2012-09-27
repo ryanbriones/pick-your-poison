@@ -5,6 +5,7 @@ gem 'sinatra'
 gem 'sinatra-initializers'
 gem 'haml'
 gem 'heroku'
+gem 'httparty'
 
 # data
 gem 'mongo'
