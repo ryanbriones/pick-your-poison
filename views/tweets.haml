@@ -15,7 +15,7 @@
           .span7
             %p.muted.pull-right 
               %a{ :href => "http://www.twitter.com/#{tweet['from_user']}/status/#{tweet['id_str']}", :style => "color: #999" }
-                = tweet['created_at']
+                = Date.parse tweet['created_at']
             %h3 
               = tweet['from_user_name']
               %small 
