@@ -3,11 +3,13 @@ GEM
   specs:
     addressable (2.3.2)
     archive-tar-minitar (0.5.2)
+    awesome_print (1.1.0)
     bson (1.6.4)
     bson_ext (1.6.4)
       bson (~> 1.6.4)
     columnize (0.3.6)
     excon (0.15.5)
+    geocoder (1.1.4)
     haml (3.1.6)
     heroku (2.30.2)
       heroku-api (~> 0.3.2)
@@ -63,7 +65,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   bson_ext
+  geocoder
   haml
   heroku
   httparty

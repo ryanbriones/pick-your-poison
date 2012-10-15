@@ -16,8 +16,8 @@
               %a{ :href => "http://www.twitter.com/#{report['twitter_handle']}" }
                 = report['twitter_handle']
               &amp;
-              %a{ :href => "mailto:#{report['person_email_address']}" }
-                #{report['person_email_address']}
+              %a{ :href => "mailto:#{report['person_email']}" }
+                #{report['person_email']}
           %hr
           %dt
             What restaurant was it?
@@ -35,4 +35,15 @@
             When did it happen?
           %dd
             = report['problem_date']
+          %dt 
+            Submitted to Open311 Test API?
+          %dd
+            - if report['token']
+              %span.label.label-success
+                Yes
+            - else
+              %span.label.label-important
+                No
+
+
           
