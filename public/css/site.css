@@ -1,0 +1,54 @@
+body {
+    background-image:url('/img/purty_wood.png');
+}
+
+.hero-unit { 
+    background-color: #fff;
+    margin-top: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.hero-unit h1 {
+    margin-bottom: 35px;
+}
+
+.hero-unit p {
+    margin: 0 0 20px 0px;
+}
+
+.hero-unit img {
+    margin-right: 7px;
+}
+
+.well {
+    background-color: #fff; 
+    padding-bottom: 0px;
+}
+
+.control-group {
+    padding-bottom: 30px;
+}
+
+.control-group .control-label {
+    font-size: 18px;
+    width: 195px;
+    margin-left: 140px;
+}
+
+.control-group .controls {
+    margin-left: 380px;
+}
+
+.control-group input {
+    width: 300px;
+    height: 30px;
+    font-size: 19px;
+    font-color: #333;
+    padding: 3px 0px 0px 7px;
+}
+
+.control-group textarea {
+    width: 300px;
+}
+
