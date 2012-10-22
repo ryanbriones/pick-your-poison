@@ -1,7 +1,9 @@
 = haml :navbar
-%script{ :type => 'text/javascript', :src => 'http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places' }
-%script{ :type => 'text/javascript', :src => 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js' }
-%script{ :type => 'text/javascript', :src => '/geocomplete/jquery.geocomplete.js' }
+%script{ :type => 'text/javascript', :src => 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' }
+%script{ :type => 'text/javascript', :src => '/bootstrap/js/bootstrap.js' }
+%script{ :type => 'text/javascript', :src => 'http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places' }
+%script{ :type => 'text/javascript', :src => '/javascripts/geocomplete/jquery.geocomplete.min.js' }
+%script{ :type => 'text/javascript', :src => '/javascripts/bootstrap-datepicker.js' }
 .container#page
   .hero-unit
     %h1 Got Food Poisoning?
@@ -16,7 +18,7 @@
       We'll tell you when they do something about it.
   .row
     .span12
-      %form.form-horizontal.well{ :method => 'post', :action => 'submit' }
+      %form.form-horizontal.well{ :action => 'submit', :method => 'post' }
         %fieldset
           %legend
             .lead
@@ -25,59 +27,86 @@
             %label.control-label{ :for => 'restaurant_name' }
               What restaurant was it?
             .controls
-              %input.input-xlarge.restaurant-name{ :type => 'text', :id => 'restaurant_name', :name => 'restaurant_name', :placeholder => "e.g.  Pete's Fish Shack" }
+              %input#restaurant-name.input-xlarge{ :type => 'text', :name => 'restaurant_name', :placeholder => "e.g.  Pete's Fish Shack" }
           .control-group
             %label.control-label{ :for => 'restaurant_address' }
               What was its address?
             .controls
-              %input.input-xlarge{ :type => 'text', :id => 'restaurant_address', :name => 'restaurant_address', :placeholder => 'e.g.  70 E Lake St, Chicago, IL' }
-              %p.help-block
+              %input#restaurant_address.input-xlarge{ :type => 'text', :name => 'restaurant_address', :"data-geo" => 'formatted_address', :placeholder => 'e.g.  70 E Lake St, Chicago, IL' }
           .control-group
             %label.control-label{ :for => 'problem_description' }
               What happened?
             .controls
-              %textarea{ :id => 'problem_description', :name => 'problem_description', :rows => '6' }
+              %textarea#problem_description{ :name => 'problem_description', :rows => '6' }
               %p.help-block
                 Spare no detail!
           .control-group
             %label.control-label{ :for => 'problem_date' }
               When did it happen?
             .controls
-              %input.input-xlarge{ :type => 'text', :id => 'problem_date', :name => 'problem_date' }
+              .input-prepend
+                %span.add-on
+                  %i.icon-calendar
+                %input#problem_date.datepicker.input-xlarge{ :type => 'text', :name => 'problem_date', :placeholder => 'e.g. 02/16/2012' }
 
         %fieldset
           %legend
             .lead
               How can we reach you?
-          .span8.alert.alert-info
+          .span8
             &nbsp;To let you know when the City responds, we need your email or twitter handle.  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>No spam, promise.</b>
+          %br
           %br
           %br
           .control-group
             %label.control-label
               Your name
             .controls
-              %input{ :type => 'text', :id => 'person_name', :name => 'person_name', :placeholder => 'Joe Citizen' }
+              %input#person_name{ :type => 'text', :name => 'person_name', :placeholder => 'Joe Citizen' }
           .control-group
             %label.control-label{ :for => 'twitter_handle' }
               Twitter handle
             .controls
-              %input{ :type => 'text', :id => 'twitter_handle', :name => 'twitter_handle', :placeholder => '@joeissick' }
+              .input-prepend 
+                %span.add-on
+                  @
+                %input#twitter_handle{ :type => 'text', :name => 'twitter_handle', :placeholder => 'joecitizen' }
           .control-group
             %label.control-label{ :for => 'person_email' }
               Email address 
             .controls
-              %input{ :type => 'text', :id => 'person_email', :name => 'person_email', :placeholder => 'jcitizen@gmail.com' }
+              .input-prepend
+                %span.add-on
+                  %i.icon-envelope
+                %input#person_email{ :type => 'text', :name => 'person_email', :placeholder => 'jcitizen@gmail.com' }
         .form-actions
           %button.btn.btn-large.btn-primary{ :type => 'submit' }
             Submit
           %button.btn
             Cancel
 
+        / JS calls to initiate restaurant name autocomplete and datepicker widget
         :javascript
-          $(".restaurant-name").geocomplete({
-            details: "form"
+          $(".datepicker").datepicker();
+
+          var chicagoBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(41.691747,-87.54692),
+            new google.maps.LatLng(41.991511,-87.806472));
+
+          $("#restaurant-name").geocomplete({
+            details: "form",
+            detailsAttribute: "data-geo",
+            types: ['establishment'],
+            bounds: chicagoBounds,
+            componentRestrictions: {country: 'us'}
           });
+
+          $("#restaurant_address").geocomplete({
+            types: ['geocode'],
+            bounds: chicagoBounds,
+            componentRestrictions: {country: 'us'}
+          });
+
 
 
 

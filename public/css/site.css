@@ -46,9 +46,22 @@ body {
     font-size: 19px;
     font-color: #333;
     padding: 3px 0px 0px 7px;
+    margin-top: 0px;
+    margin-left: -4px;
 }
 
 .control-group textarea {
-    width: 300px;
+    width: 295px;
 }
+
+.input-prepend .add-on {
+    height: 20px; 
+    font-size: 19px; 
+    padding-top: 9px; 
+}
+
+.input-prepend input {
+    width: 270px;
+}
+
 
