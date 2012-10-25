@@ -5,7 +5,7 @@
 %script{ :type => 'text/javascript', :src => '/javascripts/geocomplete/jquery.geocomplete.min.js' }
 %script{ :type => 'text/javascript', :src => '/javascripts/bootstrap-datepicker.js' }
 .container#page
-  .hero-unit
+  .hero-unit#landing
     %h1 Got Food Poisoning?
     %p
       %img{ :src => 'img/health.png' }
@@ -15,7 +15,9 @@
       Tell the City of Chicago's restaurant inspectors what happened! 
     %p
       %img{ :src => 'img/chat.png' }
-      We'll tell you when they do something about it.
+      The City will email you when they do something about it.&nbsp;&nbsp;
+      %a{ :href => '/about' }
+        How does this work?
   .row
     .span12
       %form.form-horizontal.well{ :action => 'submit', :method => 'post' }
@@ -27,12 +29,14 @@
             %label.control-label{ :for => 'restaurant_name' }
               What restaurant was it?
             .controls
-              %input#restaurant-name.input-xlarge{ :type => 'text', :name => 'restaurant_name', :placeholder => "e.g.  Pete's Fish Shack" }
+              %input#restaurant-name.input-xlarge{ :type => 'text', :name => 'restaurant_name', 
+                :placeholder => "e.g.  Pete's Fish Shack" }
           .control-group
             %label.control-label{ :for => 'restaurant_address' }
               What was its address?
             .controls
-              %input#restaurant_address.input-xlarge{ :type => 'text', :name => 'restaurant_address', :"data-geo" => 'formatted_address', :placeholder => 'e.g.  70 E Lake St, Chicago, IL' }
+              %input#restaurant_address.input-xlarge{ :type => 'text', :name => 'restaurant_address', 
+                :"data-geo" => 'formatted_address', :placeholder => 'e.g.  70 E Lake St, Chicago, IL' }
           .control-group
             %label.control-label{ :for => 'problem_description' }
               What happened?
@@ -47,14 +51,15 @@
               .input-prepend
                 %span.add-on
                   %i.icon-calendar
-                %input#problem_date.datepicker.input-xlarge{ :type => 'text', :name => 'problem_date', :placeholder => 'e.g. 02/16/2012' }
+                %input#problem_date.datepicker.input-xlarge{ :type => 'text', :name => 'problem_date', 
+                  :placeholder => 'e.g. 02/16/2012' }
 
         %fieldset
           %legend
             .lead
               How can we reach you?
           .span8
-            &nbsp;To let you know when the City responds, we need your email or twitter handle.  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>No spam, promise.</b>
+            &nbsp;To let you know when the City responds, we need your email.  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>No spam, promise.</b>
           %br
           %br
           %br

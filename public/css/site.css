@@ -1,7 +1,14 @@
+/* Site-wide styles */
 body {
     background-image:url('/img/purty_wood.png');
 }
 
+.well {
+    background-color: #fff; 
+    padding-bottom: 0px;
+}
+
+/* Hero unit styles */
 .hero-unit { 
     background-color: #fff;
     margin-top: 60px;
@@ -13,6 +20,10 @@ body {
     margin-bottom: 35px;
 }
 
+.hero-unit .page-header {
+    margin-bottom: 40px;
+}
+
 .hero-unit p {
     margin: 0 0 20px 0px;
 }
@@ -21,11 +32,12 @@ body {
     margin-right: 7px;
 }
 
-.well {
-    background-color: #fff; 
-    padding-bottom: 0px;
+.hero-unit .thumbnail {
+    margin: 0 0 80px 146px;
 }
 
+
+/* Form styles */
 .control-group {
     padding-bottom: 30px;
 }
