@@ -8,6 +8,10 @@ body {
     padding-bottom: 0px;
 }
 
+p {
+    font-size: 15px
+}
+
 /* Hero unit styles */
 .hero-unit { 
     background-color: #fff;
