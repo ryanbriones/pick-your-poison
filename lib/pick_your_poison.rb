@@ -72,7 +72,7 @@ module PickYourPoison
 
                     # Submit form results to open311 test API, print resulting API response to confirm
                     response = HTTParty.post('http://test311api.cityofchicago.org/open311/v2/requests.json', :body => { 
-                            :api_key => '229b10330f7ec919ce64d349d88fea2e', 
+                            :api_key => ENV["OPEN311_API_KEY"],
                             :service_code => '4fd6e4ece750840569000019', 
                             :attributePLEASESE => 'FOODPOIS', 
                             :attributeWHATISTH => params[:restaurant_name], 
