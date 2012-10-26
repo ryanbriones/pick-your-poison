@@ -7,6 +7,7 @@ gem 'haml'
 gem 'heroku'
 gem 'geocoder'
 gem 'httparty'
+gem 'tzinfo'
 
 # data
 gem 'mongo'
